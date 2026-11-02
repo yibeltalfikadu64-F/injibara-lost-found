@@ -1,0 +1,247 @@
+/* =========================================================
+   INJIBARA CAMPUS LOST & FOUND
+   GLOBAL DESIGN TOKENS
+========================================================= */
+
+:root {
+  /* -------------------------------------------------------
+     BRAND COLORS
+  ------------------------------------------------------- */
+
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-primary-light: #818cf8;
+  --color-primary-soft: #eef2ff;
+
+  --color-secondary: #0f766e;
+  --color-secondary-light: #14b8a6;
+  --color-secondary-soft: #ccfbf1;
+
+  --color-accent: #f59e0b;
+  --color-accent-soft: #fef3c7;
+
+  /* -------------------------------------------------------
+     SEMANTIC COLORS
+  ------------------------------------------------------- */
+
+  --color-success: #16a34a;
+  --color-success-dark: #15803d;
+  --color-success-light: #dcfce7;
+
+  --color-warning: #d97706;
+  --color-warning-dark: #b45309;
+  --color-warning-light: #fef3c7;
+
+  --color-danger: #dc2626;
+  --color-danger-dark: #b91c1c;
+  --color-danger-light: #fee2e2;
+
+  --color-info: #0284c7;
+  --color-info-dark: #0369a1;
+  --color-info-light: #e0f2fe;
+
+  /* -------------------------------------------------------
+     NEUTRAL COLORS
+  ------------------------------------------------------- */
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* -------------------------------------------------------
+     BACKGROUND AND TEXT
+  ------------------------------------------------------- */
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  --color-text-primary: #172033;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+  ------------------------------------------------------- */
+
+  --font-family-base:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  --font-family-heading: var(--font-family-base);
+  --font-family-monospace:
+    "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* -------------------------------------------------------
+     SPACING
+  ------------------------------------------------------- */
+
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+
+  /* -------------------------------------------------------
+     LAYOUT DIMENSIONS
+  ------------------------------------------------------- */
+
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 76px;
+  --header-height: 72px;
+  --content-max-width: 1600px;
+
+  /* -------------------------------------------------------
+     BORDER RADIUS
+  ------------------------------------------------------- */
+
+  --radius-none: 0;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* -------------------------------------------------------
+     SHADOWS
+  ------------------------------------------------------- */
+
+  --shadow-xs: 0 1px 2px rgb(15 23 42 / 5%);
+  --shadow-sm: 0 1px 3px rgb(15 23 42 / 8%), 0 1px 2px rgb(15 23 42 / 5%);
+  --shadow-md:
+    0 4px 6px -1px rgb(15 23 42 / 10%), 0 2px 4px -2px rgb(15 23 42 / 8%);
+  --shadow-lg:
+    0 10px 15px -3px rgb(15 23 42 / 10%), 0 4px 6px -4px rgb(15 23 42 / 8%);
+  --shadow-xl:
+    0 20px 25px -5px rgb(15 23 42 / 10%), 0 8px 10px -6px rgb(15 23 42 / 8%);
+
+  /* -------------------------------------------------------
+     TRANSITIONS
+  ------------------------------------------------------- */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* -------------------------------------------------------
+     Z-INDEX
+  ------------------------------------------------------- */
+
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+
+  /* -------------------------------------------------------
+     FORM CONTROLS
+  ------------------------------------------------------- */
+
+  --input-height: 44px;
+  --input-padding-x: 0.875rem;
+  --input-border-color: #cbd5e1;
+  --input-focus-color: var(--color-primary);
+  --input-background: #ffffff;
+
+  /* -------------------------------------------------------
+     TABLE
+  ------------------------------------------------------- */
+
+  --table-header-background: #f8fafc;
+  --table-row-hover: #f8fafc;
+  --table-border-color: #e2e8f0;
+
+  /* -------------------------------------------------------
+     CHART
+  ------------------------------------------------------- */
+
+  --chart-primary: #4f46e5;
+  --chart-secondary: #14b8a6;
+  --chart-tertiary: #f59e0b;
+  --chart-danger: #ef4444;
+  --chart-info: #0ea5e9;
+}
+
+/* =========================================================
+   DARK THEME TOKENS
+========================================================= */
+
+[data-theme="dark"] {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-muted: #273449;
+  --color-border: #334155;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-gray-50: #1e293b;
+  --color-gray-100: #273449;
+  --color-gray-200: #334155;
+  --color-gray-300: #475569;
+
+  --input-border-color: #475569;
+  --input-background: #1e293b;
+
+  --table-header-background: #273449;
+  --table-row-hover: #273449;
+  --table-border-color: #334155;
+
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 20%);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 25%);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 30%);
+}
+
+/* =========================================================
+   GLOBAL COLOR HELPERS
+========================================================= */
+
+:root {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}

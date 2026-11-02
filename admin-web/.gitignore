@@ -1,0 +1,26 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist
+dist-ssr
+
+# TypeScript build information
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules
+
+# Local editor settings
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store

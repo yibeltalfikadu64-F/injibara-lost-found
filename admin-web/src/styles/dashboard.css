@@ -1,0 +1,618 @@
+/* =========================================================
+   INJIBARA CAMPUS LOST & FOUND
+   ADMIN DASHBOARD STYLES
+========================================================= */
+
+/* =========================================================
+   1. DASHBOARD PAGE
+========================================================= */
+
+.dashboard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.dashboard-heading h1 {
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-3xl);
+  letter-spacing: -0.04em;
+}
+
+.dashboard-heading p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* =========================================================
+   2. WELCOME BANNER
+========================================================= */
+
+.dashboard-welcome {
+  position: relative;
+  display: flex;
+  min-height: 150px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-6);
+  overflow: hidden;
+  padding: var(--spacing-8);
+  border-radius: var(--radius-2xl);
+  background:
+    radial-gradient(circle at 90% 10%, rgb(255 255 255 / 20%), transparent 35%),
+    linear-gradient(120deg, #4338ca, #6366f1 65%, #818cf8);
+  color: var(--color-white);
+}
+
+.dashboard-welcome h2 {
+  margin-bottom: var(--spacing-2);
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+}
+
+.dashboard-welcome p {
+  max-width: 550px;
+  margin: 0;
+  color: rgb(255 255 255 / 85%);
+}
+
+.dashboard-welcome-content {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-welcome-decoration {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 35%;
+  background: rgb(255 255 255 / 12%);
+  transform: rotate(15deg);
+}
+
+/* =========================================================
+   3. STATISTICS GRID
+========================================================= */
+
+.dashboard-stats,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-4);
+}
+
+.stat-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--spacing-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.stat-card-icon {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+}
+
+.stat-card-icon.success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.stat-card-icon.warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.stat-card-icon.danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.stat-card-icon.info {
+  background: var(--color-info-light);
+  color: var(--color-info);
+}
+
+.stat-card-label {
+  margin: var(--spacing-4) 0 var(--spacing-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.stat-card-value {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.stat-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-3);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.stat-card-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.stat-card-trend.positive {
+  color: var(--color-success);
+}
+
+.stat-card-trend.negative {
+  color: var(--color-danger);
+}
+
+/* =========================================================
+   4. DASHBOARD CONTENT GRID
+========================================================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--spacing-5);
+}
+
+.dashboard-grid > * {
+  min-width: 0;
+}
+
+.dashboard-column-12 {
+  grid-column: span 12;
+}
+
+.dashboard-column-8 {
+  grid-column: span 8;
+}
+
+.dashboard-column-6 {
+  grid-column: span 6;
+}
+
+.dashboard-column-4 {
+  grid-column: span 4;
+}
+
+/* =========================================================
+   5. CHART CARDS
+========================================================= */
+
+.dashboard-chart-card {
+  min-width: 0;
+  min-height: 340px;
+  padding: var(--spacing-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-5);
+}
+
+.dashboard-chart-header h3 {
+  margin-bottom: var(--spacing-1);
+  font-size: var(--font-size-lg);
+}
+
+.dashboard-chart-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-chart-container {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+}
+
+.dashboard-chart-container .recharts-responsive-container {
+  min-width: 0;
+}
+
+.dashboard-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.chart-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* =========================================================
+   6. RECENT ACTIVITY
+========================================================= */
+
+.recent-activity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) 0;
+}
+
+.activity-item:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.activity-icon {
+  display: flex;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.activity-icon.success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.activity-icon.warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.activity-icon.danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.activity-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.activity-title {
+  margin: 0 0 var(--spacing-1);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.activity-description {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  overflow-wrap: anywhere;
+}
+
+.activity-time {
+  display: block;
+  margin-top: var(--spacing-1);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* =========================================================
+   7. RECENT ITEMS
+========================================================= */
+
+.recent-items,
+.recent-claims {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.recent-item:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-surface-muted);
+}
+
+.recent-item-image {
+  width: 58px;
+  min-width: 58px;
+  height: 58px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+
+.recent-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-item-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.recent-item-title {
+  overflow: hidden;
+  margin: 0 0 var(--spacing-1);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* =========================================================
+   8. RECENT CLAIMS
+========================================================= */
+
+.claim-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.claim-item:last-child {
+  border-bottom: 0;
+}
+
+.claim-item-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.claim-item-title {
+  overflow: hidden;
+  margin: 0 0 var(--spacing-1);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.claim-item-subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* =========================================================
+   9. DASHBOARD SECTION HEADERS
+========================================================= */
+
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.dashboard-section-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+.dashboard-section-subtitle {
+  margin: var(--spacing-1) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dashboard-view-all:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   10. QUICK ACTIONS
+========================================================= */
+
+.dashboard-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-3);
+}
+
+.quick-action {
+  display: flex;
+  min-height: 75px;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.quick-action:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.quick-action-icon {
+  display: flex;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   11. DASHBOARD FILTERS
+========================================================= */
+
+.dashboard-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.dashboard-filter {
+  min-width: 140px;
+  min-height: 38px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+/* =========================================================
+   12. DASHBOARD RESPONSIVE SUPPORT
+========================================================= */
+
+@media (max-width: 1200px) {
+  .dashboard-stats,
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-column-8,
+  .dashboard-column-4 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-column-12,
+  .dashboard-column-8,
+  .dashboard-column-6,
+  .dashboard-column-4 {
+    grid-column: span 1;
+  }
+
+  .dashboard-welcome {
+    min-height: 130px;
+    padding: var(--spacing-5);
+  }
+
+  .dashboard-welcome-decoration {
+    width: 75px;
+    height: 75px;
+  }
+}

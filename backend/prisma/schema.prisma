@@ -1,0 +1,252 @@
+// Injibara Campus Lost & Found
+// PostgreSQL database schema — Prisma 7
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  STUDENT
+  STAFF
+  SECURITY
+  ADMIN
+}
+
+enum ItemType {
+  LOST
+  FOUND
+}
+
+enum ItemStatus {
+  OPEN
+  CLAIMED
+  RESOLVED
+  ARCHIVED
+}
+
+enum ClaimStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+  COMPLETED
+}
+
+enum NotificationType {
+  CLAIM_UPDATE
+  ITEM_MATCH
+  ITEM_UPDATE
+  ANNOUNCEMENT
+  SYSTEM
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  APPROVE
+  REJECT
+  HANDOVER
+  ROLE_CHANGE
+}
+
+model User {
+  id              String    @id @default(uuid()) @db.Uuid
+  fullName        String
+  email           String    @unique
+  passwordHash    String
+  role            UserRole  @default(STUDENT)
+  studentId       String?   @unique
+  department      String?
+  phone           String?   @unique
+  avatarUrl       String?
+  isActive        Boolean   @default(true)
+  emailVerifiedAt DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  reportedItems       Item[]         @relation("ReportedItems")
+  claims              Claim[]        @relation("ClaimsMade")
+  reviewedClaims      Claim[]        @relation("ClaimsReviewed")
+  verifiedHandovers   Claim[]        @relation("HandoverVerifications")
+  notifications       Notification[]
+  refreshTokens       RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+  auditLogs           AuditLog[]
+  announcements       Announcement[] @relation("AnnouncementAuthor")
+
+  @@index([role])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+model Category {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @unique
+  description String?
+  icon        String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  items Item[]
+}
+
+model Location {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @unique
+  description String?
+  building    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  items Item[]
+}
+
+model Item {
+  id                 String     @id @default(uuid()) @db.Uuid
+  title              String
+  description        String
+  type               ItemType
+  status             ItemStatus @default(OPEN)
+  dateOccurred       DateTime?
+  dateReported       DateTime   @default(now())
+  color              String?
+  brand              String?
+  identifyingFeatures String?
+  imageUrls          String[]   @default([])
+  isApproved         Boolean    @default(false)
+  approvedAt         DateTime?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+
+  reporterId String @db.Uuid
+  categoryId String? @db.Uuid
+  locationId String? @db.Uuid
+
+  reporter User      @relation("ReportedItems", fields: [reporterId], references: [id], onDelete: Restrict)
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  location Location? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  claims   Claim[]
+
+  @@index([type, status])
+  @@index([reporterId])
+  @@index([categoryId])
+  @@index([locationId])
+  @@index([dateReported])
+  @@index([isApproved])
+}
+
+model Claim {
+  id                    String      @id @default(uuid()) @db.Uuid
+  description           String
+  proofAnswers          Json?
+  status                ClaimStatus @default(PENDING)
+  reviewNote            String?
+  reviewedAt            DateTime?
+  handoverCodeHash      String?
+  handoverVerifiedAt    DateTime?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  itemId             String  @db.Uuid
+  claimantId         String  @db.Uuid
+  reviewedById       String? @db.Uuid
+  handoverVerifiedById String? @db.Uuid
+
+  item             Item  @relation(fields: [itemId], references: [id], onDelete: Restrict)
+  claimant         User  @relation("ClaimsMade", fields: [claimantId], references: [id], onDelete: Restrict)
+  reviewedBy       User? @relation("ClaimsReviewed", fields: [reviewedById], references: [id], onDelete: SetNull)
+  handoverVerifiedBy User? @relation("HandoverVerifications", fields: [handoverVerifiedById], references: [id], onDelete: SetNull)
+
+  @@unique([itemId, claimantId])
+  @@index([status])
+  @@index([claimantId])
+  @@index([itemId])
+  @@index([createdAt])
+}
+
+model Notification {
+  id        String           @id @default(uuid()) @db.Uuid
+  title     String
+  message   String
+  type      NotificationType @default(SYSTEM)
+  isRead    Boolean          @default(false)
+  data      Json?
+  createdAt DateTime         @default(now())
+
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@index([createdAt])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Announcement {
+  id        String   @id @default(uuid()) @db.Uuid
+  title     String
+  content   String
+  isPublished Boolean @default(false)
+  publishedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String @db.Uuid
+  author   User   @relation("AnnouncementAuthor", fields: [authorId], references: [id], onDelete: Restrict)
+
+  @@index([isPublished, publishedAt])
+}
+
+model AuditLog {
+  id         String      @id @default(uuid()) @db.Uuid
+  action     AuditAction
+  entity     String
+  entityId   String?
+  description String?
+  metadata   Json?
+  ipAddress  String?
+  createdAt  DateTime    @default(now())
+
+  actorId String? @db.Uuid
+  actor   User?   @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([actorId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+}

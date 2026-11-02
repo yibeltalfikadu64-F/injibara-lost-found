@@ -1,0 +1,356 @@
+/* =========================================================
+   INJIBARA CAMPUS LOST & FOUND
+   RESPONSIVE DESIGN
+========================================================= */
+
+/* =========================================================
+   1. LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+  .container {
+    padding-inline: var(--spacing-8);
+  }
+
+  .dashboard-stats,
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dashboard {
+    gap: var(--spacing-8);
+  }
+}
+
+/* =========================================================
+   2. LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: 235px;
+  }
+
+  .main-content {
+    padding: var(--spacing-5);
+  }
+
+  .dashboard-stats,
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-grid {
+    gap: var(--spacing-4);
+  }
+}
+
+/* =========================================================
+   3. TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: var(--z-fixed);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(var(--sidebar-width), 85vw);
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+
+  .sidebar.open,
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    z-index: calc(var(--z-fixed) - 1);
+    inset: 0;
+    background: rgb(15 23 42 / 50%);
+  }
+
+  .main-content,
+  .main-content.expanded {
+    width: 100%;
+    margin-left: 0;
+    padding: var(--spacing-5);
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-column-8,
+  .dashboard-column-4 {
+    grid-column: span 6;
+  }
+
+  .admin-header {
+    padding-inline: var(--spacing-4);
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+}
+
+/* =========================================================
+   4. MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  body {
+    font-size: var(--font-size-sm);
+  }
+
+  .container {
+    padding-inline: var(--spacing-4);
+  }
+
+  .main-content {
+    padding: var(--spacing-4);
+  }
+
+  .dashboard {
+    gap: var(--spacing-4);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-3);
+  }
+
+  .dashboard-heading h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .dashboard-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .dashboard-actions .btn {
+    flex: 1;
+  }
+
+  .dashboard-stats,
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-3);
+  }
+
+  .stat-card {
+    padding: var(--spacing-3);
+  }
+
+  .stat-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-base);
+  }
+
+  .stat-card-value {
+    font-size: var(--font-size-xl);
+  }
+
+  .stat-card-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-column-12,
+  .dashboard-column-8,
+  .dashboard-column-6,
+  .dashboard-column-4 {
+    grid-column: span 1;
+  }
+
+  .dashboard-welcome {
+    min-height: 120px;
+    padding: var(--spacing-4);
+  }
+
+  .dashboard-welcome h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .dashboard-welcome-decoration {
+    display: none;
+  }
+
+  .dashboard-chart-card {
+    min-height: 280px;
+    padding: var(--spacing-4);
+  }
+
+  .dashboard-chart-container {
+    min-height: 210px;
+  }
+
+  .card {
+    padding: var(--spacing-4);
+  }
+
+  .card-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-filters {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-filter {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal {
+    padding: var(--spacing-4);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-3);
+  }
+
+  .btn {
+    min-height: 40px;
+  }
+}
+
+/* =========================================================
+   5. VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .dashboard-stats,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: var(--spacing-4);
+  }
+
+  .dashboard-heading h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .recent-item-image {
+    width: 46px;
+    min-width: 46px;
+    height: 46px;
+  }
+
+  .activity-item {
+    gap: var(--spacing-2);
+  }
+
+  .activity-icon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   6. LANDSCAPE MOBILE
+========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .sidebar {
+    overflow-y: auto;
+  }
+
+  .dashboard-welcome {
+    min-height: 110px;
+  }
+}
+
+/* =========================================================
+   7. TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .pagination-button,
+  .dropdown-item,
+  .quick-action {
+    min-height: 44px;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   8. PRINT
+========================================================= */
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .sidebar,
+  .admin-header,
+  .dashboard-actions,
+  .btn,
+  .no-print {
+    display: none !important;
+  }
+
+  .main-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card,
+  .stat-card,
+  .dashboard-chart-card {
+    break-inside: avoid;
+    border: 1px solid #cccccc;
+    box-shadow: none;
+  }
+
+  .dashboard-grid {
+    display: block;
+  }
+
+  .dashboard-grid > * {
+    margin-bottom: 20px;
+  }
+}

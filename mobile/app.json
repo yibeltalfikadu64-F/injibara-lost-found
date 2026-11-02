@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Injibara Campus Lost & Found",
+    "slug": "injibara-campus-lost-found",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "injibara-lost-found",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "platforms": ["ios", "android", "web"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.injibara.campuslostfound",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Your location helps identify where an item was lost or found on campus."
+      }
+    },
+    "android": {
+      "package": "com.injibara.campuslostfound",
+      "permissions": ["INTERNET", "ACCESS_NETWORK_STATE"]
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Injibara Campus Lost & Found to access your photos so you can upload pictures of lost and found items.",
+          "cameraPermission": "Allow Injibara Campus Lost & Found to use your camera to photograph lost and found items."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Injibara Campus Lost & Found to access your location to identify where an item was lost or found."
+        }
+      ],
+      "expo-notifications",
+      "expo-secure-store",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow Injibara Campus Lost & Found to use Face ID for secure authentication."
+        }
+      ]
+    ],
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "appName": "Injibara Campus Lost & Found",
+      "appVersion": "1.0.0"
+    }
+  }
+}

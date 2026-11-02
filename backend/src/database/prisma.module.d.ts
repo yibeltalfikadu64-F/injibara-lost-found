@@ -1,0 +1,2 @@
+export {};
+//# sourceMappingURL=prisma.module.d.ts.map

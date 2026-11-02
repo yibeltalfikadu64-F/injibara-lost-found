@@ -1,0 +1,174 @@
+{
+  "app": {
+    "name": "Injibara Campus Lost & Found",
+    "shortName": "Campus Lost & Found",
+    "tagline": "Find what matters. Return what belongs.",
+    "loading": "Loading...",
+    "welcome": "Welcome",
+    "getStarted": "Get Started",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue"
+  },
+  "navigation": {
+    "home": "Home",
+    "search": "Search",
+    "report": "Report",
+    "myItems": "My Items",
+    "myClaims": "My Claims",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "settings": "Settings",
+    "help": "Help",
+    "about": "About"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Create Account",
+    "logout": "Logout",
+    "email": "Email Address",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "studentId": "Student ID",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "forgotPassword": "Forgot Password?",
+    "createAccount": "Create your account",
+    "loginSuccess": "You have successfully signed in.",
+    "registerSuccess": "Your account has been created.",
+    "invalidCredentials": "Incorrect email or password."
+  },
+  "home": {
+    "title": "Campus Lost & Found",
+    "subtitle": "Help reunite lost belongings with their owners.",
+    "lostItems": "Lost Items",
+    "foundItems": "Found Items",
+    "recentItems": "Recently Reported",
+    "reportLost": "Report Lost Item",
+    "reportFound": "Report Found Item",
+    "browseItems": "Browse Items"
+  },
+  "items": {
+    "title": "Items",
+    "itemDetails": "Item Details",
+    "itemTitle": "Item Title",
+    "description": "Description",
+    "lost": "Lost",
+    "found": "Found",
+    "category": "Category",
+    "location": "Location",
+    "date": "Date",
+    "color": "Color",
+    "images": "Images",
+    "addImages": "Add Images",
+    "open": "Open",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "claimed": "Claimed",
+    "returned": "Returned",
+    "reportItem": "Report Item",
+    "editItem": "Edit Item",
+    "deleteItem": "Delete Item",
+    "noItems": "No items available.",
+    "searchPlaceholder": "Search items..."
+  },
+  "claims": {
+    "title": "Claims",
+    "myClaims": "My Claims",
+    "claimItem": "Claim This Item",
+    "submitClaim": "Submit Claim",
+    "claimDetails": "Claim Details",
+    "verificationQuestions": "Verification Questions",
+    "claimSubmitted": "Your claim has been submitted.",
+    "claimPending": "Your claim is awaiting review.",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "handover": "Item Handover",
+    "handoverCode": "Handover Code"
+  },
+  "reports": {
+    "title": "Reports",
+    "myReports": "My Reports",
+    "reportDetails": "Report Details",
+    "createReport": "Create Report",
+    "reportSubmitted": "Your report has been submitted.",
+    "noReports": "You have not created any reports."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAsRead": "Mark as Read",
+    "markAllAsRead": "Mark All as Read",
+    "noNotifications": "You have no notifications."
+  },
+  "profile": {
+    "title": "My Profile",
+    "personalInformation": "Personal Information",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "student": "Student",
+    "staff": "Staff",
+    "security": "Security Officer",
+    "administrator": "Administrator"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "systemTheme": "System Default",
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "helpSupport": "Help & Support",
+    "about": "About Application"
+  },
+  "security": {
+    "title": "Security Center",
+    "pendingClaims": "Pending Claims",
+    "reviewClaim": "Review Claim",
+    "approveClaim": "Approve Claim",
+    "rejectClaim": "Reject Claim",
+    "scanHandover": "Scan Handover Code",
+    "custodyRegister": "Custody Register"
+  },
+  "admin": {
+    "title": "Administration",
+    "dashboard": "Admin Dashboard",
+    "manageUsers": "Manage Users",
+    "manageItems": "Manage Items",
+    "manageClaims": "Manage Claims",
+    "accessDenied": "You do not have permission to access this page."
+  },
+  "network": {
+    "online": "Online",
+    "offline": "Offline",
+    "connecting": "Connecting...",
+    "syncing": "Synchronizing...",
+    "syncNow": "Sync Now",
+    "syncComplete": "Synchronization completed.",
+    "syncFailed": "Synchronization failed.",
+    "offlineSaved": "Saved on this device. It will sync when you are online."
+  },
+  "errors": {
+    "general": "Something went wrong. Please try again.",
+    "network": "Network error. Check your connection.",
+    "notFound": "The requested information could not be found.",
+    "unauthorized": "You are not authorized to perform this action."
+  },
+  "success": {
+    "saved": "Changes saved successfully.",
+    "updated": "Updated successfully.",
+    "deleted": "Deleted successfully.",
+    "submitted": "Submitted successfully."
+  },
+  "about": {
+    "title": "About This Application",
+    "description": "A campus platform designed to help students and staff report, discover, and recover lost belongings.",
+    "university": "Injibara University"
+  }
+}
