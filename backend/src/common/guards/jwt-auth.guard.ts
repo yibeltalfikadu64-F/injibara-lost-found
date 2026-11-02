@@ -42,7 +42,7 @@ export interface JwtAuthConfig {
 
   audience?: string;
 
-  algorithms?: jwt.Algorithm[];
+  algorithms?: readonly jwt.Algorithm[];
 
   clockTolerance?: number;
 
@@ -131,7 +131,7 @@ function isValidUserRole(value: unknown): value is UserRole {
 
 function isValidJwtPayload(
   payload: string | JwtPayload,
-): payload is JwtPayload {
+): payload is JwtPayload & { sub: string; email: string; role: UserRole } {
   if (typeof payload === "string") {
     return false;
   }
@@ -163,7 +163,7 @@ function verifyAccessToken(
   }
 
   const verifyOptions: VerifyOptions = {
-    algorithms: config.algorithms ?? ["HS256"],
+    algorithms: [...(config.algorithms ?? ["HS256"])],
 
     ...(config.issuer ? { issuer: config.issuer } : {}),
 

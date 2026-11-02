@@ -24,6 +24,7 @@ import type {
 
 import {
   NotFoundException,
+  UnauthorizedException,
   BadRequestException,
   ForbiddenException,
   ConflictException,
@@ -251,7 +252,7 @@ export class ClaimsService {
   // 9. GENERATE RANDOM HANDOVER CODE
   // ====================================================
 
-  private generateHandoverCode(): string {
+  private createRandomHandoverCode(): string {
     return randomInt(100000, 1000000).toString();
   }
 
@@ -394,11 +395,12 @@ export class ClaimsService {
             description:
               input.description.trim(),
 
-            proofAnswers: input.proofAnswers
-              ? (
-                  input.proofAnswers as Prisma.InputJsonValue
-                )
-              : undefined,
+            ...(input.proofAnswers
+              ? {
+                  proofAnswers:
+                    input.proofAnswers as Prisma.InputJsonValue,
+                }
+              : {}),
 
             status: 'PENDING',
           },
@@ -872,7 +874,7 @@ export class ClaimsService {
     }
 
     const plainCode =
-      this.generateHandoverCode();
+      this.createRandomHandoverCode();
 
     const codeHash =
       await argon2.hash(plainCode);
